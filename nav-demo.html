@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lila Wirz Eco Tours Mendoza | Traslados Privados — Mendoza</title>
+<meta name="description" content="Traslados privados desde el aeropuerto de Mendoza a bodegas, alta montaña y Potrerillos. Itinerarios a medida en vehículo eléctrico. Consultá por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
+html, body { overflow-x: hidden }
+img { max-width: 100%; height: auto; display: block }
+input, select, textarea { font-size: 16px }
+
+:root {
+  --accent:       #6B2D5E;
+  --accent2:      #8B4A7E;
+  --nav-bg:       #0A0A0A;
+  --nav-border:   #1a1a1a;
+  --nav-text:     #F0EAE2;
+  --nav-muted:    #888888;
+  --bg:           #FAF8F5;
+  --bg2:          #F0EBE4;
+  --bg3:          #FFFFFF;
+  --border:       #E2D9D0;
+  --text:         #1A1612;
+  --muted:        #756B62;
+  --success:      #2D6A4F;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body:    'DM Sans', sans-serif;
+  --radius-sm:    6px;
+  --radius-md:    12px;
+  --radius-lg:    20px;
+  --radius-full:  9999px;
+  --shadow-sm:    0 1px 3px rgba(0,0,0,.08);
+  --shadow-md:    0 4px 16px rgba(0,0,0,.12);
+  --shadow-lg:    0 8px 32px rgba(0,0,0,.16);
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding-top: 68px;
+  padding-bottom: 0;
+}
+@media (max-width: 768px) { body { padding-top: 108px } }
+
+/* ══════════════════════════════
+   NAVBAR
+══════════════════════════════ */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: 68px;
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
+  display: flex;
+  align-items: center;
+  padding: 0 clamp(1rem, 4vw, 2rem);
+}
+
+/* Marca — solo visible en mobile */
+.nav-brand {
+  display: none;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--nav-text);
+  text-decoration: none;
+  letter-spacing: .02em;
+  flex: 1;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    height: auto;
+    flex-wrap: wrap;
+    padding: .5rem clamp(1rem, 4vw, 1.5rem);
+    gap: 0;
+  }
+  .nav-brand {
+    display: block;
+    line-height: 44px;
+  }
+  .lang-switcher {
+    /* Se queda en la misma fila que el brand */
+  }
+  .nav-pill-wrap {
+    position: static !important;
+    transform: none !important;
+    order: 3;
+    width: 100%;
+    padding-bottom: .35rem;
+  }
+  .nav-item {
+    font-size: .82rem;
+    padding: .45rem .9rem;
+  }
+}
+
+.nav-pill-wrap {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.nav-pill {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: 9999px;
+  padding: .3rem;
+  gap: .15rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  mask: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+.nav-pill::-webkit-scrollbar { display: none }
+
+.nav-item {
+  position: relative;
+  z-index: 2;
+  padding: .55rem .95rem;
+  font-size: .875rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--nav-muted);
+  cursor: pointer;
+  border-radius: 9999px;
+  white-space: nowrap;
+  transition: color .25s;
+  user-select: none;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.nav-item:hover { color: var(--nav-text) }
+.nav-item.active { color: var(--nav-text) }
+
+.pill-slider {
+  position: absolute;
+  z-index: 1;
+  background: var(--accent);
+  border-radius: 9999px;
+  opacity: .85;
+  transition:
+    left   .35s cubic-bezier(.16,1,.3,1),
+    width  .35s cubic-bezier(.16,1,.3,1),
+    top    .35s cubic-bezier(.16,1,.3,1),
+    height .35s cubic-bezier(.16,1,.3,1);
+  pointer-events: none;
+}
+
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: .15rem;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.lang-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  transition: transform .15s ease, opacity .2s;
+  opacity: .45;
+  flex-shrink: 0;
+}
+.lang-btn:hover { opacity: .75; transform: scale(1.08) }
+.lang-btn.active { opacity: 1; transform: scale(1.1) }
+.lang-flag {
+  width: 26px;
+  height: 19px;
+  border-radius: 3px;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 1px 6px rgba(0,0,0,.5);
+}
+.lang-label { display: none }
+
+/* ══════════════════════════════
+   PAGES
+══════════════════════════════ */
+.page { display: none }
+.page.active { display: block }
+
+/* ══════════════════════════════
+   ANIMACIONES .fi
+══════════════════════════════ */
+.fi {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1);
+}
+.fi.fl { transform: translateX(-28px) }
+.fi.fr { transform: translateX(28px) }
+.fi.visible { opacity: 1; transform: none }
+.fi-d1 { transition-delay: .1s }
+.fi-d2 { transition-delay: .2s }
+.fi-d3 { transition-delay: .3s }
+.fi-d4 { transition-delay: .4s }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .fi { opacity: 1; transform: none }
+}
+
+/* ══════════════════════════════
+   HERO — INICIO
+══════════════════════════════ */
+.hero {
+  position: relative;
+  min-height: calc(100svh - 68px);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('hero.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(26,18,14,.9)  0%,
+    rgba(26,18,14,.45) 45%,
+    rgba(26,18,14,.2)  100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: clamp(2rem, 8vw, 5rem) clamp(1.25rem, 5vw, 3rem);
+  padding-bottom: clamp(3rem, 8vw, 5rem);
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.65);
+  margin-bottom: 1.25rem;
+}
+.hero-eco-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--success);
+  animation: pulse 2.5s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1) }
+  50% { opacity: .5; transform: scale(.85) }
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 8vw, 5.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -.01em;
+  color: #fff;
+  margin-bottom: 1.25rem;
+  max-width: 14ch;
+}
+
+.hero-brand-sub {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(255,255,255,.7);
+  letter-spacing: .02em;
+  margin-bottom: 1.5rem;
+  margin-top: -.25rem;
+}
+
+.hero-sub {
+  font-size: clamp(.95rem, 2vw, 1.1rem);
+  color: rgba(255,255,255,.75);
+  max-width: 46ch;
+  line-height: 1.65;
+  margin-bottom: 2rem;
+}
+
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  align-items: center;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  padding: .45rem 1rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255,255,255,.2);
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(6px);
+  font-size: .75rem;
+  color: rgba(255,255,255,.8);
+  letter-spacing: .02em;
+  margin-top: 1.5rem;
+}
+
+/* ══════════════════════════════
+   BOTONES
+══════════════════════════════ */
+.btn-primary, .btn-secondary, .btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .75rem 1.75rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: .95rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform .15s cubic-bezier(.16,1,.3,1), box-shadow .15s ease;
+  min-height: 44px;
+}
+.btn-primary:hover  { transform: translateY(-2px); box-shadow: var(--shadow-md) }
+.btn-secondary:hover { transform: translateY(-2px) }
+.btn-primary   { background: var(--accent);  color: #fff }
+.btn-secondary { background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.25); backdrop-filter: blur(6px) }
+.btn-ghost     { background: transparent; color: var(--accent); border: 1px solid var(--accent) }
+.btn-lg { padding: 1rem 2.25rem; font-size: 1.05rem }
+
+/* ══════════════════════════════
+   PROPUESTA DE VALOR
+══════════════════════════════ */
+.section {
+  padding: clamp(3.5rem, 8vw, 6rem) clamp(1.25rem, 5vw, 2rem);
+}
+.section--alt { background: var(--bg2) }
+
+.section-label {
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -.01em;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.props-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.prop-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+}
+
+.prop-icon {
+  width: 44px; height: 44px;
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  color: var(--accent);
+}
+
+.prop-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: .5rem;
+}
+
+.prop-desc {
+  font-size: .9rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════
+   SERVICIO ESTRELLA
+══════════════════════════════ */
+.estrella-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  margin-top: 3rem;
+}
+@media (max-width: 680px) {
+  .estrella-grid { grid-template-columns: 1fr }
+}
+
+.estrella-img {
+  position: relative;
+  min-height: 340px;
+}
+.estrella-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.estrella-body {
+  background: var(--bg3);
+  padding: clamp(1.75rem, 5vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.estrella-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  border-radius: var(--radius-full);
+  padding: .35rem .9rem;
+  width: fit-content;
+}
+
+.estrella-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.estrella-desc {
+  font-size: .95rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.estrella-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.tag {
+  font-size: .78rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: .3rem .8rem;
+  background: var(--bg2);
+}
+
+/* ══════════════════════════════
+   CÓMO FUNCIONA
+══════════════════════════════ */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+  position: relative;
+}
+
+.step-card {
+  text-align: center;
+  padding: 2rem 1.25rem;
+}
+
+.step-num {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+}
+
+.step-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: .6rem;
+}
+
+.step-desc {
+  font-size: .875rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════
+   EXPANDING CARDS — SERVICIOS
+══════════════════════════════ */
+.servicios-header {
+  padding: clamp(3rem, 7vw, 5rem) clamp(1.25rem, 5vw, 2rem) clamp(2rem, 4vw, 3rem);
+  text-align: center;
+}
+
+.exp-cards-wrap {
+  padding: 0 clamp(1.25rem, 3vw, 2rem) clamp(3rem, 7vw, 5rem);
+}
+
+.exp-cards {
+  display: grid;
+  gap: .5rem;
+  width: 100%;
+  height: 520px;
+  transition: grid-template-columns 500ms ease-out, grid-template-rows 500ms ease-out;
+}
+@media (min-width: 768px) {
+  .exp-cards { grid-template-rows: 1fr }
+}
+@media (max-width: 767px) {
+  .exp-cards {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 480px;
+  }
+}
+
+.exp-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  min-width: 0;
+  min-height: 80px;
+}
+
+.exp-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1);
+  transform: scale(1.08);
+  transition: filter 400ms ease, transform 400ms ease;
+}
+.exp-card.active img { filter: grayscale(0); transform: scale(1) }
+
+.exp-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.3) 55%, transparent 100%);
+}
+
+.exp-card-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: .5rem;
+  padding: 1.25rem;
+}
+
+.exp-card-title-sideways {
+  display: none;
+  font-size: .72rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: rgba(255,255,255,.7);
+  transform: rotate(90deg);
+  transform-origin: left center;
+  transition: opacity 300ms ease;
+  white-space: nowrap;
+}
+@media (min-width: 768px) { .exp-card-title-sideways { display: block } }
+.exp-card.active .exp-card-title-sideways { opacity: 0 }
+
+.exp-card-icon {
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: opacity 300ms 75ms ease;
+}
+.exp-card-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 300ms 150ms ease;
+}
+.exp-card-desc {
+  font-size: .85rem;
+  color: rgba(255,255,255,.8);
+  max-width: 280px;
+  line-height: 1.55;
+  opacity: 0;
+  transition: opacity 300ms 225ms ease;
+}
+.exp-card.active .exp-card-icon,
+.exp-card.active .exp-card-title,
+.exp-card.active .exp-card-desc { opacity: 1 }
+
+.exp-card-star {
+  position: absolute;
+  top: .75rem;
+  right: .75rem;
+  background: var(--accent);
+  color: #fff;
+  font-size: .65rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .25rem .65rem;
+  border-radius: var(--radius-full);
+  opacity: 0;
+  transition: opacity 300ms 200ms ease;
+}
+.exp-card.active .exp-card-star { opacity: 1 }
+
+.servicios-cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0 clamp(1.25rem, 5vw, 2rem) clamp(3rem, 7vw, 5rem);
+}
+
+/* ══════════════════════════════
+   FORMULARIO FLOAT
+══════════════════════════════ */
+.wa-float {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 200;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(107,45,94,.45);
+  transition: transform .2s ease, box-shadow .2s ease;
+  text-decoration: none;
+  font-size: 1.75rem;
+  cursor: pointer;
+}
+.wa-float:hover { transform: scale(1.08); box-shadow: 0 6px 20px rgba(107,45,94,.55) }
+
+/* ══════════════════════════════
+   MOBILE CTA BAR
+══════════════════════════════ */
+.mobile-cta-bar {
+  display: none;
+}
+
+/* ══════════════════════════════
+   PLACEHOLDERS (sobre-mi / contacto)
+══════════════════════════════ */
+.page-placeholder {
+  min-height: calc(100svh - 68px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem clamp(1.25rem, 5vw, 3rem);
+  gap: 1rem;
+}
+.page-tag {
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.page-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 8vw, 5.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -.01em;
+  color: var(--text);
+}
+.page-sub {
+  font-size: clamp(.95rem, 2vw, 1.1rem);
+  color: var(--muted);
+  max-width: 480px;
+  line-height: 1.65;
+}
+.page-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .5rem 1.25rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.6);
+  font-size: .78rem;
+  color: var(--muted);
+}
+.dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 2s infinite;
+}
+
+/* Container util */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.container--narrow { max-width: 720px }
+
+/* ══════════════════════════════
+   SOBRE MÍ
+══════════════════════════════ */
+.sobre-hero {
+  padding: clamp(3.5rem, 8vw, 6rem) clamp(1.25rem, 5vw, 2rem);
+}
+.sobre-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+}
+@media (max-width: 680px) {
+  .sobre-grid { grid-template-columns: 1fr }
+}
+
+.sobre-foto-wrap { position: relative }
+
+.sobre-foto-stack {
+  position: relative;
+}
+
+.sobre-foto-main {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  max-width: 340px;
+}
+
+.sobre-foto-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  background: var(--bg2);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  color: var(--muted);
+  font-size: 2rem;
+}
+.sobre-foto-placeholder span { font-family: var(--font-display); font-size: 1rem; color: var(--muted) }
+
+.sobre-foto-auto {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 65%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 3px solid var(--bg);
+}
+.sobre-foto-auto img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3 }
+
+.sobre-bio {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.sobre-text {
+  font-size: .95rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* Stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+  gap: 1rem;
+}
+.stat-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.25rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+}
+.stat-num {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1;
+}
+.stat-label {
+  font-size: .8rem;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Vehículos */
+.autos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+.auto-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.auto-foto {
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+.auto-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s ease;
+}
+.auto-card:hover .auto-foto img { transform: scale(1.04) }
+.auto-foto--placeholder {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+}
+.auto-body {
+  padding: 1.25rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+.auto-name {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.auto-desc { font-size: .875rem; color: var(--muted); line-height: 1.6 }
+
+/* ══════════════════════════════
+   CONTACTO — FORMULARIO
+══════════════════════════════ */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+@media (max-width: 560px) {
+  .form-row { grid-template-columns: 1fr }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+}
+
+.form-label {
+  font-size: .8rem;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: .02em;
+}
+
+.form-input {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--text);
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: .75rem 1rem;
+  width: 100%;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+  appearance: none;
+}
+.form-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent);
+}
+.form-input::placeholder { color: var(--muted) }
+select.form-input { cursor: pointer }
+.form-textarea { resize: vertical; min-height: 90px }
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: .5rem .75rem;
+  padding: .75rem 1rem;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.check-item, .radio-item {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .875rem;
+  color: var(--text);
+  cursor: pointer;
+  min-height: 32px;
+}
+.check-item input, .radio-item input {
+  width: 16px; height: 16px;
+  accent-color: var(--accent);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem .75rem;
+  padding: .75rem 1rem;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.form-submit {
+  width: 100%;
+  justify-content: center;
+  margin-top: .5rem;
+  gap: .6rem;
+}
+
+/* Links sociales */
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .6rem 1.2rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  background: var(--bg3);
+  font-size: .875rem;
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color .2s, transform .15s;
+}
+.contact-link:hover { border-color: var(--accent); transform: translateY(-1px) }
+.contact-link-icon { font-size: 1rem }
+</style>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<nav class="nav">
+
+  <!-- Pill central -->
+  <div class="nav-pill-wrap">
+    <div class="nav-pill" id="navPill">
+      <div class="pill-slider" id="pillSlider"></div>
+      <a class="nav-item active" data-page="inicio"    href="#"         data-es="Inicio"    data-en="Home"     data-pt="Início">Inicio</a>
+      <a class="nav-item"       data-page="servicios"  href="#servicios" data-es="Servicios" data-en="Services"  data-pt="Serviços">Servicios</a>
+      <a class="nav-item"       data-page="sobre-mi"   href="#sobre-mi"  data-es="Sobre mí"  data-en="About"    data-pt="Sobre mim">Sobre mí</a>
+      <a class="nav-item"       data-page="contacto"   href="#contacto"  data-es="Contacto"  data-en="Contact"  data-pt="Contato">Contacto</a>
+    </div>
+  </div>
+
+  <!-- Banderas -->
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="es" aria-label="Español" aria-pressed="true">
+      <img class="lang-flag" src="https://flagcdn.com/w80/ar.png" alt="Argentina">
+    </button>
+    <button class="lang-btn" data-lang="en" aria-label="English" aria-pressed="false">
+      <img class="lang-flag" src="https://flagcdn.com/w80/us.png" alt="United States">
+    </button>
+    <button class="lang-btn" data-lang="pt" aria-label="Português" aria-pressed="false">
+      <img class="lang-flag" src="https://flagcdn.com/w80/br.png" alt="Brasil">
+    </button>
+  </div>
+
+</nav>
+
+<!-- ══════════ PÁGINAS ══════════ -->
+<main>
+
+  <!-- ════ INICIO ════ -->
+  <div id="page-inicio" class="page active">
+
+    <!-- Hero -->
+    <section class="hero" aria-label="Hero">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-tag">
+          <span class="hero-eco-dot"></span>
+          <span data-es="Mendoza · Argentina" data-en="Mendoza · Argentina" data-pt="Mendoza · Argentina">Mendoza · Argentina</span>
+        </p>
+        <h1 class="hero-title">Lila Wirz Eco Tours</h1>
+        <p class="hero-brand-sub" data-es="Experiencias en Mendoza" data-en="Experiences in Mendoza" data-pt="Experiências em Mendoza">Experiencias en Mendoza</p>
+        <p class="hero-sub" data-es="Bodegas, alta montaña y Potrerillos — en vehículo eléctrico, a tu ritmo, con quien conoce cada rincón." data-en="Wineries, high mountains and Potrerillos — in an electric vehicle, at your pace, with someone who knows every corner." data-pt="Vinícolas, alta montanha e Potrerillos — em veículo elétrico, no seu ritmo, com quem conhece cada canto.">
+          Bodegas, alta montaña y Potrerillos — en vehículo eléctrico, a tu ritmo, con quien conoce cada rincón.
+        </p>
+        <div class="hero-ctas">
+          <a href="#contacto" class="btn-primary btn-lg" data-page="contacto" data-es="Completá el formulario" data-en="Fill out the form" data-pt="Preencha o formulário">
+            Completá el formulario
+          </a>
+          <a href="#servicios" class="btn-secondary" data-page="servicios" data-es="Ver experiencias" data-en="See experiences" data-pt="Ver experiências">
+            Ver experiencias
+          </a>
+        </div>
+        <div class="hero-badge">
+          <span>✓</span>
+          <span data-es="Credencial oficial Aeropuerto El Plumerillo · Ecosistema Moovand" data-en="Official El Plumerillo Airport Credential · Moovand Ecosystem" data-pt="Credencial oficial Aeroporto El Plumerillo · Ecossistema Moovand">Credencial oficial Aeropuerto El Plumerillo · Ecosistema Moovand</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Propuesta de valor -->
+    <section class="section">
+      <div class="container">
+        <p class="section-label fi" data-es="Por qué elegir Lila" data-en="Why choose Lila" data-pt="Por que escolher Lila">Por qué elegir Lila</p>
+        <h2 class="section-title fi fi-d1" data-es="Tu viaje, tus reglas" data-en="Your trip, your rules" data-pt="Sua viagem, suas regras">Tu viaje, tus reglas</h2>
+        <div class="props-grid">
+          <div class="prop-card fi fi-d1">
+            <div class="prop-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="prop-title" data-es="Privado y personalizado" data-en="Private and personalized" data-pt="Privado e personalizado">Privado y personalizado</h3>
+            <p class="prop-desc" data-es="Ningún horario fijo, ningún grupo. Tu experiencia, tus paradas, tu ritmo." data-en="No fixed schedules, no groups. Your experience, your stops, your pace." data-pt="Sem horários fixos, sem grupos. Sua experiência, suas paradas, seu ritmo.">Ningún horario fijo, ningún grupo. Tu experiencia, tus paradas, tu ritmo.</p>
+          </div>
+          <div class="prop-card fi fi-d2">
+            <div class="prop-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h3 class="prop-title" data-es="100% eléctrico" data-en="100% electric" data-pt="100% elétrico">100% eléctrico</h3>
+            <p class="prop-desc" data-es="Cero emisiones. Recorrés Mendoza cuidando el ambiente, en silencio y confort." data-en="Zero emissions. You explore Mendoza caring for the environment, in silence and comfort." data-pt="Zero emissões. Você explora Mendoza cuidando do meio ambiente, em silêncio e conforto.">Cero emisiones. Recorrés Mendoza cuidando el ambiente, en silencio y confort.</p>
+          </div>
+          <div class="prop-card fi fi-d3">
+            <div class="prop-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            </div>
+            <h3 class="prop-title" data-es="Autorizada en el aeropuerto" data-en="Authorized at the airport" data-pt="Autorizada no aeroporto">Autorizada en el aeropuerto</h3>
+            <p class="prop-desc" data-es="Acceso oficial al Aeropuerto El Plumerillo. Te espero en la terminal, sin vueltas." data-en="Official access to El Plumerillo Airport. I meet you at the terminal, no hassle." data-pt="Acesso oficial ao Aeroporto El Plumerillo. Espero você no terminal, sem complicações.">Acceso oficial al Aeropuerto El Plumerillo. Te espero en la terminal, sin vueltas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Servicio estrella -->
+    <section class="section section--alt">
+      <div class="container">
+        <p class="section-label fi" data-es="Experiencia más elegida" data-en="Most popular experience" data-pt="Experiência mais escolhida">Experiencia más elegida</p>
+        <div class="estrella-grid fi fi-d1">
+          <div class="estrella-img">
+            <img src="bodega-vinedo.webp" alt="Bodega arquitectónica con viñedos y Andes nevados al fondo — Mendoza" loading="lazy">
+          </div>
+          <div class="estrella-body">
+            <span class="estrella-badge">⭐ <span data-es="Servicio estrella" data-en="Featured experience" data-pt="Experiência destaque">Servicio estrella</span></span>
+            <h2 class="estrella-title" data-es="Tour 3 Bodegas en un día" data-en="3 Wineries in One Day Tour" data-pt="Tour 3 Vinícolas em um dia">Tour 3 Bodegas en un día</h2>
+            <p class="estrella-desc" data-es="Tres bodegas de categoría en Maipú, Luján de Cuyo o Valle de Uco. Degustaciones, viñedos y gastronomía de autor — todo en un solo recorrido, sin perderte nada." data-en="Three premium wineries in Maipú, Luján de Cuyo or Valle de Uco. Tastings, vineyards and gourmet cuisine — all in one tour, missing nothing." data-pt="Três vinícolas de categoria em Maipú, Luján de Cuyo ou Valle de Uco. Degustações, vinhedos e gastronomia autoral — tudo em um único roteiro.">
+              Tres bodegas de categoría en Maipú, Luján de Cuyo o Valle de Uco. Degustaciones, viñedos y gastronomía de autor — todo en un solo recorrido, sin perderte nada.
+            </p>
+            <div class="estrella-tags">
+              <span class="tag" data-es="Maipú" data-en="Maipú" data-pt="Maipú">Maipú</span>
+              <span class="tag" data-es="Luján de Cuyo" data-en="Luján de Cuyo" data-pt="Luján de Cuyo">Luján de Cuyo</span>
+              <span class="tag" data-es="Valle de Uco" data-en="Valle de Uco" data-pt="Valle de Uco">Valle de Uco</span>
+              <span class="tag" data-es="Cotización a medida" data-en="Custom quote" data-pt="Cotação personalizada">Cotización a medida</span>
+            </div>
+            <div>
+              <a href="#servicios" class="btn-primary" data-page="servicios" data-es="Ver todos los servicios" data-en="See all services" data-pt="Ver todos os serviços">Ver todos los servicios</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cómo funciona -->
+    <section class="section">
+      <div class="container">
+        <p class="section-label fi" data-es="El proceso" data-en="How it works" data-pt="Como funciona">El proceso</p>
+        <h2 class="section-title fi fi-d1" data-es="Tres pasos y listo" data-en="Three steps and you're set" data-pt="Três passos e pronto">Tres pasos y listo</h2>
+        <div class="steps-grid">
+          <div class="step-card fi fi-d1">
+            <div class="step-num">1</div>
+            <h3 class="step-title" data-es="Completá el formulario" data-en="Fill out the form" data-pt="Preencha o formulário">Completá el formulario</h3>
+            <p class="step-desc" data-es="Contame tus fechas, cuántos son y qué querés conocer de Mendoza." data-en="Tell me your dates, how many people and what you want to discover in Mendoza." data-pt="Me conte suas datas, quantos são e o que querem conhecer em Mendoza.">Contame tus fechas, cuántos son y qué querés conocer de Mendoza.</p>
+          </div>
+          <div class="step-card fi fi-d2">
+            <div class="step-num">2</div>
+            <h3 class="step-title" data-es="Recibís tu itinerario" data-en="You receive your itinerary" data-pt="Você recebe seu itinerário">Recibís tu itinerario</h3>
+            <p class="step-desc" data-es="Te armo un recorrido personalizado y te mando la cotización por WhatsApp." data-en="I put together a personalized route and send you the quote via WhatsApp." data-pt="Monto um roteiro personalizado e envio o orçamento pelo WhatsApp.">Te armo un recorrido personalizado y te mando la cotización por WhatsApp.</p>
+          </div>
+          <div class="step-card fi fi-d3">
+            <div class="step-num">3</div>
+            <h3 class="step-title" data-es="Te busco y arrancamos" data-en="I pick you up and we go" data-pt="Te busco e partimos">Te busco y arrancamos</h3>
+            <p class="step-desc" data-es="Paso por el aeropuerto o tu alojamiento y empezamos la experiencia." data-en="I pick you up at the airport or your accommodation and we start the experience." data-pt="Passo no aeroporto ou na sua hospedagem e começamos a experiência.">Paso por el aeropuerto o tu alojamiento y empezamos la experiencia.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ════ SERVICIOS ════ -->
+  <div id="page-servicios" class="page">
+
+    <div class="servicios-header">
+      <p class="section-label fi" data-es="Experiencias" data-en="Experiences" data-pt="Experiências">Experiencias</p>
+      <h1 class="section-title fi fi-d1" data-es="Cada viaje es único" data-en="Every trip is unique" data-pt="Cada viagem é única">Cada viaje es único</h1>
+      <p class="fi fi-d2" style="color:var(--muted);max-width:48ch;margin:.75rem auto 0;line-height:1.6;font-size:.95rem" data-es="Elegí tu experiencia. Cotización a medida por WhatsApp." data-en="Choose your experience. Custom quote via WhatsApp." data-pt="Escolha sua experiência. Orçamento personalizado pelo WhatsApp.">Elegí tu experiencia. Cotización a medida por WhatsApp.</p>
+    </div>
+
+    <div class="exp-cards-wrap">
+      <ul class="exp-cards" id="expCards" style="list-style:none;padding:0">
+
+        <li class="exp-card active">
+          <img src="bodega-vinedo.webp" alt="Bodega con viñedos y Andes nevados — tour de bodegas Mendoza">
+          <span class="exp-card-star" data-es="Más elegido" data-en="Most popular" data-pt="Mais escolhido">Más elegido</span>
+          <div class="exp-card-overlay"></div>
+          <div class="exp-card-content">
+            <span class="exp-card-title-sideways" data-es="Bodegas" data-en="Wineries" data-pt="Vinícolas">Bodegas</span>
+            <span class="exp-card-icon">🍷</span>
+            <h2 class="exp-card-title" data-es="Bodegas" data-en="Wineries" data-pt="Vinícolas">Bodegas</h2>
+            <p class="exp-card-desc" data-es="Las mejores bodegas de Mendoza según tu preferencia o nuestras recomendaciones." data-en="The best wineries in Mendoza according to your preference or our recommendations." data-pt="As melhores vinícolas de Mendoza segundo sua preferência ou nossas recomendações.">Las mejores bodegas de Mendoza según tu preferencia o nuestras recomendaciones.</p>
+          </div>
+        </li>
+
+        <li class="exp-card">
+          <img src="montana-aconcagua.jpg" alt="Cartel del Cerro Aconcagua 6962 msnm con la montaña nevada de fondo" loading="lazy">
+          <div class="exp-card-overlay"></div>
+          <div class="exp-card-content">
+            <span class="exp-card-title-sideways" data-es="Alta Montaña" data-en="High Mountain" data-pt="Alta Montanha">Alta Montaña</span>
+            <span class="exp-card-icon">🏔️</span>
+            <h2 class="exp-card-title" data-es="Alta Montaña" data-en="High Mountain" data-pt="Alta Montanha">Alta Montaña</h2>
+            <p class="exp-card-desc" data-es="Uspallata, Aconcagua y Puente del Inca. La cordillera desde adentro, en un día." data-en="Uspallata, Aconcagua and Puente del Inca. The Andes from within, in one day." data-pt="Uspallata, Aconcágua e Puente del Inca. A cordilheira por dentro, em um dia.">Uspallata, Aconcagua y Puente del Inca. La cordillera desde adentro, en un día.</p>
+          </div>
+        </li>
+
+        <li class="exp-card">
+          <img src="potrerillos.jpg" alt="Embalse Potrerillos rodeado de montañas — Mendoza" loading="lazy">
+          <div class="exp-card-overlay"></div>
+          <div class="exp-card-content">
+            <span class="exp-card-title-sideways" data-es="Potrerillos" data-en="Potrerillos" data-pt="Potrerillos">Potrerillos</span>
+            <span class="exp-card-icon">💧</span>
+            <h2 class="exp-card-title" data-es="Potrerillos" data-en="Potrerillos" data-pt="Potrerillos">Potrerillos</h2>
+            <p class="exp-card-desc" data-es="El embalse y el río Mendoza rodeados de montañas. Naturaleza pura a una hora." data-en="The reservoir and Mendoza River surrounded by mountains. Pure nature, one hour away." data-pt="O reservatório e o Rio Mendoza cercados de montanhas. Natureza pura a uma hora.">El embalse y el río Mendoza rodeados de montañas. Naturaleza pura a una hora.</p>
+          </div>
+        </li>
+
+        <li class="exp-card">
+          <img src="villavicencio.jpg" alt="Hotel Villavicencio histórico rodeado de montañas nevadas — vista aérea" loading="lazy">
+          <div class="exp-card-overlay"></div>
+          <div class="exp-card-content">
+            <span class="exp-card-title-sideways" data-es="Villavicencio" data-en="Villavicencio" data-pt="Villavicencio">Villavicencio</span>
+            <span class="exp-card-icon">🛣️</span>
+            <h2 class="exp-card-title" data-es="Villavicencio" data-en="Villavicencio" data-pt="Villavicencio">Villavicencio</h2>
+            <p class="exp-card-desc" data-es="La ruta de montaña más icónica de Mendoza. Hotel histórico y paisajes únicos." data-en="Mendoza's most iconic mountain road. Historic hotel and unique landscapes." data-pt="A rota de montanha mais icônica de Mendoza. Hotel histórico e paisagens únicas.">La ruta de montaña más icónica de Mendoza. Hotel histórico y paisajes únicos.</p>
+          </div>
+        </li>
+
+        <li class="exp-card">
+          <img src="city-tour-mendoza.jpg" alt="Cartel Mendoza iluminado de noche con fuentes — city tour" loading="lazy">
+          <div class="exp-card-overlay"></div>
+          <div class="exp-card-content">
+            <span class="exp-card-title-sideways" data-es="City Tour" data-en="City Tour" data-pt="City Tour">City Tour</span>
+            <span class="exp-card-icon">🏙️</span>
+            <h2 class="exp-card-title" data-es="City Tour Mendoza" data-en="Mendoza City Tour" data-pt="City Tour Mendoza">City Tour Mendoza</h2>
+            <p class="exp-card-desc" data-es="La ciudad, sus plazas, mercados y cultura local. El punto de partida perfecto." data-en="The city, its squares, markets and local culture. The perfect starting point." data-pt="A cidade, suas praças, mercados e cultura local. O ponto de partida perfeito.">La ciudad, sus plazas, mercados y cultura local. El punto de partida perfecto.</p>
+          </div>
+        </li>
+
+        <li class="exp-card">
+          <!-- REEMPLAZAR: foto real de alojamiento -->
+          <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80" alt="Casa de alojamiento con jardín — Mendoza" loading="lazy">
+          <div class="exp-card-overlay"></div>
+          <div class="exp-card-content">
+            <span class="exp-card-title-sideways" data-es="Alojamiento" data-en="Accommodation" data-pt="Hospedagem">Alojamiento</span>
+            <span class="exp-card-icon">🏡</span>
+            <h2 class="exp-card-title" data-es="Alojamiento" data-en="Accommodation" data-pt="Hospedagem">Alojamiento</h2>
+            <p class="exp-card-desc" data-es="Casas y deptos en Ciudad, Tupungato, Chacras de Coria y Luján. En Airbnb como "Vuela Alto Mendoza"." data-en="Houses and apartments in the city, Tupungato, Chacras de Coria and Luján. On Airbnb as "Vuela Alto Mendoza"." data-pt='Casas e aptos em Cidade, Tupungato, Chacras de Coria e Luján. No Airbnb como "Vuela Alto Mendoza".'>Casas y deptos en Ciudad, Tupungato, Chacras de Coria y Luján. En Airbnb como "Vuela Alto Mendoza".</p>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+
+    <div class="servicios-cta fi">
+      <a href="#contacto" class="btn-primary btn-lg" data-page="contacto" data-es="Solicitar cotización" data-en="Request a quote" data-pt="Solicitar orçamento">Solicitar cotización</a>
+      <a href="#" class="btn-ghost btn-lg" id="btnAirbnb" target="_blank" rel="noopener" data-es="Ver alojamientos" data-en="See accommodations" data-pt="Ver hospedagens">Ver alojamientos</a>
+    </div>
+
+  </div>
+
+  <!-- ════ SOBRE MÍ ════ -->
+  <div id="page-sobre-mi" class="page">
+
+    <!-- Intro hero -->
+    <section class="sobre-hero">
+      <div class="container">
+        <div class="sobre-grid">
+          <div class="sobre-foto-wrap fi fl">
+            <div class="sobre-foto-main">
+              <img src="foto lila.jpg" alt="Lila Wirz — conductora local de Eco Tours Mendoza">
+            </div>
+          </div>
+          <div class="sobre-bio fi fr">
+            <p class="section-label" data-es="Tu conductora local" data-en="Your local driver" data-pt="Sua motorista local">Tu conductora local</p>
+            <h1 class="section-title" data-es="Hola, soy Lila" data-en="Hi, I'm Lila" data-pt="Olá, sou Lila">Hola, soy Lila</h1>
+            <p class="sobre-text" data-es="Hace más de 5 años llevo turistas de Argentina y de todo el mundo a descubrir Mendoza — uno de los principales destinos gastronómicos de categoría internacional." data-en="For over 5 years I've been taking tourists from Argentina and around the world to discover Mendoza — one of the world's top gastronomic destinations." data-pt="Há mais de 5 anos levo turistas da Argentina e do mundo todo para descobrir Mendoza — um dos principais destinos gastronômicos de categoria internacional.">
+              Hace más de 5 años llevo turistas de Argentina y de todo el mundo a descubrir Mendoza — uno de los principales destinos gastronômicos de categoría internacional.
+            </p>
+            <p class="sobre-text" data-es="Conozco cada bodega, cada curva de la montaña y cada rincón del embalse. Eso es lo que me diferencia: no soy un conductor, soy tu guía local." data-en="I know every winery, every mountain curve, and every corner of the reservoir. That's what sets me apart: I'm not just a driver, I'm your local guide." data-pt="Conheço cada vinícola, cada curva da montanha e cada canto do reservatório. É isso que me diferencia: não sou apenas motorista, sou sua guia local.">
+              Conozco cada bodega, cada curva de la montaña y cada rincón del embalse. Eso es lo que me diferencia: no soy un conductor, soy tu guía local.
+            </p>
+            <a href="#contacto" class="btn-primary" data-page="contacto" data-es="Planear mi viaje con Lila" data-en="Plan my trip with Lila" data-pt="Planejar minha viagem com Lila">Planear mi viaje con Lila</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card fi fi-d1">
+            <span class="stat-num">+5</span>
+            <span class="stat-label" data-es="años de experiencia" data-en="years of experience" data-pt="anos de experiência">años de experiencia</span>
+          </div>
+          <div class="stat-card fi fi-d2">
+            <span class="stat-num">2</span>
+            <span class="stat-label" data-es="vehículos 100% eléctricos" data-en="100% electric vehicles" data-pt="veículos 100% elétricos">vehículos 100% eléctricos</span>
+          </div>
+          <div class="stat-card fi fi-d3">
+            <span class="stat-num">✓</span>
+            <span class="stat-label" data-es="Credencial Aeropuerto El Plumerillo · Ecosistema Moovand" data-en="El Plumerillo Airport Credential · Moovand Ecosystem" data-pt="Credencial Aeroporto El Plumerillo · Ecossistema Moovand">Credencial Aeropuerto El Plumerillo · Ecosistema Moovand</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vehículos -->
+    <section class="section">
+      <div class="container">
+        <p class="section-label fi" data-es="Los autos" data-en="The vehicles" data-pt="Os veículos">Los autos</p>
+        <h2 class="section-title fi fi-d1" data-es="100% eléctricos, cero emisiones" data-en="100% electric, zero emissions" data-pt="100% elétricos, zero emissões">100% eléctricos, cero emisiones</h2>
+        <div class="autos-grid fi fi-d2">
+          <div class="auto-card">
+            <div class="auto-foto">
+              <img src="nissan-leaf-bodega.jpg" alt="Nissan Leaf eléctrico blanco de Lila Eco Tours frente a una bodega en Mendoza">
+            </div>
+            <div class="auto-body">
+              <h3 class="auto-name">Nissan Leaf</h3>
+              <p class="auto-desc" data-es="Silencioso, cómodo y sin emisiones. El auto perfecto para recorrer bodegas y paisajes sin interrupciones." data-en="Silent, comfortable and zero-emission. The perfect car to explore wineries and landscapes without interruption." data-pt="Silencioso, confortável e sem emissões. O carro perfeito para explorar vinícolas e paisagens sem interrupção.">Silencioso, cómodo y sin emisiones. El auto perfecto para recorrer bodegas y paisajes sin interrupciones.</p>
+            </div>
+          </div>
+          <div class="auto-card">
+            <div class="auto-foto">
+              <img src="auto baic eu5.jpg" alt="BAIC EU5 eléctrico de Lila Eco Tours Mendoza">
+            </div>
+            <div class="auto-body">
+              <h3 class="auto-name">BAIC EU5</h3>
+              <p class="auto-desc" data-es="Sedán eléctrico con gran autonomía. Ideal para grupos más grandes y recorridos de alta montaña." data-en="Electric sedan with great range. Ideal for larger groups and high mountain routes." data-pt="Sedã elétrico com grande autonomia. Ideal para grupos maiores e percursos de alta montanha.">Sedán eléctrico con gran autonomía. Ideal para grupos más grandes y recorridos de alta montaña.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ════ CONTACTO ════ -->
+  <div id="page-contacto" class="page">
+    <section class="section">
+      <div class="container container--narrow">
+        <p class="section-label fi" data-es="Reservas" data-en="Book now" data-pt="Reservas">Reservas</p>
+        <h1 class="section-title fi fi-d1" data-es="Armemos tu viaje" data-en="Let's plan your trip" data-pt="Vamos planejar sua viagem">Armemos tu viaje</h1>
+        <p class="fi fi-d2" style="color:var(--muted);line-height:1.65;margin:.75rem 0 2.5rem;font-size:.95rem"
+           data-es="Completá el formulario y te respondo por WhatsApp con la cotización — sin compromiso."
+           data-en="Fill out the form and I'll reply via WhatsApp with your quote — no commitment."
+           data-pt="Preencha o formulário e responderei pelo WhatsApp com o orçamento — sem compromisso.">
+          Completá el formulario y te respondo por WhatsApp con la cotización — sin compromiso.
+        </p>
+
+        <form class="contact-form fi fi-d2" id="contactForm" novalidate>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="nombre" data-es="Nombre completo" data-en="Full name" data-pt="Nome completo">Nombre completo</label>
+              <input class="form-input" type="text" id="nombre" name="nombre" required
+                     placeholder="Tu nombre"
+                     data-placeholder-es="Tu nombre"
+                     data-placeholder-en="Your name"
+                     data-placeholder-pt="Seu nome">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fecha" data-es="Fecha estimada del viaje" data-en="Estimated travel date" data-pt="Data estimada da viagem">Fecha estimada del viaje</label>
+              <input class="form-input" type="date" id="fecha" name="fecha" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="personas" data-es="Cantidad de personas" data-en="Number of people" data-pt="Quantidade de pessoas">Cantidad de personas</label>
+              <input class="form-input" type="number" id="personas" name="personas" min="1" max="20" required
+                     placeholder="1"
+                     data-placeholder-es="1"
+                     data-placeholder-en="1"
+                     data-placeholder-pt="1">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="maletas" data-es="Cantidad de maletas" data-en="Number of bags" data-pt="Quantidade de malas">Cantidad de maletas</label>
+              <input class="form-input" type="number" id="maletas" name="maletas" min="0" max="20"
+                     placeholder="0"
+                     data-placeholder-es="0"
+                     data-placeholder-en="0"
+                     data-placeholder-pt="0">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="hora" data-es="Hora de llegada del vuelo (opcional)" data-en="Flight arrival time (optional)" data-pt="Hora de chegada do voo (opcional)">Hora de llegada del vuelo (opcional)</label>
+              <input class="form-input" type="time" id="hora" name="hora">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="pickup" data-es="Lugar de pick up" data-en="Pick up location" data-pt="Local de embarque">Lugar de pick up</label>
+              <select class="form-input" id="pickup" name="pickup" required>
+                <option value="" data-es="Seleccioná una opción" data-en="Select an option" data-pt="Selecione uma opção">Seleccioná una opción</option>
+                <option value="Aeropuerto El Plumerillo" data-es="Aeropuerto El Plumerillo" data-en="El Plumerillo Airport" data-pt="Aeroporto El Plumerillo">Aeropuerto El Plumerillo</option>
+                <option value="Hotel" data-es="Hotel" data-en="Hotel" data-pt="Hotel">Hotel</option>
+                <option value="Otro" data-es="Otro" data-en="Other" data-pt="Outro">Otro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" data-es="Servicios de interés" data-en="Services of interest" data-pt="Serviços de interesse">Servicios de interés</label>
+            <div class="checkbox-grid">
+              <label class="check-item"><input type="checkbox" name="servicios" value="Bodegas"> <span data-es="Bodegas" data-en="Wineries" data-pt="Vinícolas">Bodegas</span></label>
+              <label class="check-item"><input type="checkbox" name="servicios" value="Alta Montaña"> <span data-es="Alta Montaña" data-en="High Mountain" data-pt="Alta Montanha">Alta Montaña</span></label>
+              <label class="check-item"><input type="checkbox" name="servicios" value="Potrerillos"> <span data-es="Potrerillos" data-en="Potrerillos" data-pt="Potrerillos">Potrerillos</span></label>
+              <label class="check-item"><input type="checkbox" name="servicios" value="Villavicencio"> <span data-es="Villavicencio" data-en="Villavicencio" data-pt="Villavicencio">Villavicencio</span></label>
+              <label class="check-item"><input type="checkbox" name="servicios" value="City Tour"> <span data-es="City Tour" data-en="City Tour" data-pt="City Tour">City Tour</span></label>
+              <label class="check-item"><input type="checkbox" name="servicios" value="Alojamiento"> <span data-es="Alojamiento" data-en="Accommodation" data-pt="Hospedagem">Alojamiento</span></label>
+              <label class="check-item"><input type="checkbox" name="servicios" value="Otro"> <span data-es="Otro" data-en="Other" data-pt="Outro">Otro</span></label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" data-es="Tipo de viaje" data-en="Trip type" data-pt="Tipo de viagem">Tipo de viaje</label>
+            <div class="radio-group">
+              <label class="radio-item">
+                <input type="radio" name="tipo" value="Traslado simple" checked>
+                <span data-es="Traslado simple" data-en="Simple transfer" data-pt="Traslado simples">Traslado simple</span>
+              </label>
+              <label class="radio-item">
+                <input type="radio" name="tipo" value="Itinerario de varios días">
+                <span data-es="Itinerario de varios días" data-en="Multi-day itinerary" data-pt="Itinerário de vários dias">Itinerario de varios días</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="mensaje" data-es="Mensaje adicional (opcional)" data-en="Additional message (optional)" data-pt="Mensagem adicional (opcional)">Mensaje adicional (opcional)</label>
+            <textarea class="form-input form-textarea" id="mensaje" name="mensaje" rows="3"
+                      placeholder="¿Alguna preferencia especial o consulta?"
+                      data-placeholder-es="¿Alguna preferencia especial o consulta?"
+                      data-placeholder-en="Any special preference or question?"
+                      data-placeholder-pt="Alguma preferência especial ou dúvida?"></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary btn-lg form-submit" id="formSubmit">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            <span data-es="Enviar por WhatsApp" data-en="Send via WhatsApp" data-pt="Enviar pelo WhatsApp">Enviar por WhatsApp</span>
+          </button>
+
+        </form>
+
+
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<!-- Formulario float -->
+<a href="#contacto" class="wa-float" data-page="contacto" aria-label="Completar formulario de contacto">
+  📋
+</a>
+
+<!-- Mobile CTA bar -->
+<div class="mobile-cta-bar">
+  <a href="#contacto" class="btn-primary" data-page="contacto" data-es="Completá el formulario" data-en="Fill out the form" data-pt="Preencha o formulário">Completá el formulario</a>
+</div>
+
+<script>
+// ─── Slider ───────────────────────────────────────────
+const pill   = document.getElementById('navPill');
+const slider = document.getElementById('pillSlider');
+const items  = pill.querySelectorAll('.nav-item');
+
+function moveSlider(el) {
+  const pillRect = pill.getBoundingClientRect();
+  const elRect   = el.getBoundingClientRect();
+  slider.style.left   = (elRect.left - pillRect.left + pill.scrollLeft) + 'px';
+  slider.style.top    = (elRect.height - 3) + 'px';
+  slider.style.width  = elRect.width  + 'px';
+  slider.style.height = '2px';
+}
+
+// ─── Animaciones .fi ──────────────────────────────────
+let globalIO = null;
+function observeAll() {
+  if (globalIO) globalIO.disconnect();
+  globalIO = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (en.isIntersecting) {
+        en.target.classList.add('visible');
+        globalIO.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.page.active .fi:not(.visible)').forEach(el => globalIO.observe(el));
+}
+
+// ─── Expanding Cards ──────────────────────────────────
+function initExpandingCards() {
+  const ul = document.getElementById('expCards');
+  if (!ul) return;
+  const cards = ul.querySelectorAll('.exp-card');
+  let isDesktop = window.innerWidth >= 768;
+
+  function setActive(idx) {
+    cards.forEach((c, i) => c.classList.toggle('active', i === idx));
+    const fracs = Array.from(cards).map((_, i) => i === idx ? '5fr' : '1fr');
+    if (isDesktop) {
+      ul.style.gridTemplateColumns = fracs.join(' ');
+      ul.style.gridTemplateRows = '';
+    } else {
+      ul.style.gridTemplateRows = fracs.join(' ');
+      ul.style.gridTemplateColumns = '';
+    }
+  }
+
+  cards.forEach((card, i) => {
+    card.addEventListener('mouseenter', () => { if (isDesktop) setActive(i); });
+    card.addEventListener('click', () => setActive(i));
+  });
+
+  window.addEventListener('resize', () => {
+    isDesktop = window.innerWidth >= 768;
+    const activeIdx = Array.from(cards).findIndex(c => c.classList.contains('active'));
+    setActive(activeIdx >= 0 ? activeIdx : 0);
+  });
+
+  setActive(0);
+}
+
+// ─── Routing ──────────────────────────────────────────
+const PAGES = ['inicio','servicios','sobre-mi','contacto'];
+
+function navigate(page) {
+  if (!PAGES.includes(page)) page = 'inicio';
+  PAGES.forEach(p => {
+    document.getElementById('page-' + p).classList.toggle('active', p === page);
+  });
+  items.forEach(item => {
+    const isActive = item.dataset.page === page;
+    item.classList.toggle('active', isActive);
+    if (isActive) requestAnimationFrame(() => moveSlider(item));
+  });
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  history.replaceState(null, '', '#' + (page === 'inicio' ? '' : page));
+  setTimeout(() => {
+    observeAll();
+    if (page === 'servicios') initExpandingCards();
+  }, 60);
+}
+
+// clicks en nav y CTAs con data-page
+document.addEventListener('click', e => {
+  const el = e.target.closest('[data-page]');
+  if (el && el.dataset.page && PAGES.includes(el.dataset.page)) {
+    e.preventDefault();
+    navigate(el.dataset.page);
+  }
+});
+
+window.addEventListener('hashchange', () => {
+  const h = location.hash.replace('#','') || 'inicio';
+  navigate(PAGES.includes(h) ? h : 'inicio');
+});
+
+// ─── Lang switcher ───────────────────────────────────
+const langBtns = document.querySelectorAll('.lang-btn');
+
+function applyLang(lang) {
+  document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+    if (!el.closest('.lang-switcher') && !el.matches('.lang-btn, .lang-flag')) {
+      el.textContent = el.getAttribute('data-' + lang);
+    }
+  });
+  document.querySelectorAll('[data-placeholder-' + lang + ']').forEach(el => {
+    el.placeholder = el.getAttribute('data-placeholder-' + lang);
+  });
+  langBtns.forEach(btn => {
+    const active = btn.dataset.lang === lang;
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-pressed', active);
+  });
+  document.documentElement.lang = lang;
+}
+
+langBtns.forEach(btn => {
+  btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+});
+
+// ─── Formulario → WhatsApp ────────────────────────────
+const form = document.getElementById('contactForm');
+if (form) {
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const nombre   = form.nombre.value.trim() || 'No especificado';
+    const personas = form.personas.value || 'No especificada';
+    const maletas  = form.maletas.value  || '0';
+    const fecha    = form.fecha.value    || 'No especificada';
+    const hora     = form.hora.value     || 'No especificada';
+    const pickup   = form.pickup.value   || 'No especificado';
+    const tipo     = form.querySelector('[name="tipo"]:checked')?.value || 'No especificado';
+    const mensaje  = form.mensaje.value.trim() || 'Sin mensaje adicional';
+    const servicios = Array.from(form.querySelectorAll('[name="servicios"]:checked'))
+                          .map(c => c.value).join(', ') || 'No especificados';
+
+    const texto =
+`Hola Lila! Te escribo desde la web. Mis datos:
+
+👤 Nombre: ${nombre}
+👥 Personas: ${personas}
+🧳 Maletas: ${maletas}
+📅 Fecha: ${fecha}
+✈️ Hora llegada vuelo: ${hora}
+📍 Pick up: ${pickup}
+🗺️ Servicios: ${servicios}
+🔄 Tipo de viaje: ${tipo}
+💬 Mensaje: ${mensaje}`;
+
+    window.open('https://wa.me/5492615258157?text=' + encodeURIComponent(texto), '_blank');
+  });
+}
+
+// ─── Init ─────────────────────────────────────────────
+const initPage = location.hash.replace('#','') || 'inicio';
+navigate(PAGES.includes(initPage) ? initPage : 'inicio');
+applyLang('es');
+
+document.fonts.ready.then(() => {
+  const active = pill.querySelector('.nav-item.active');
+  if (active) moveSlider(active);
+});
+</script>
+</body>
+</html>
