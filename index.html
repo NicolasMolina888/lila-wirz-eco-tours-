@@ -368,6 +368,66 @@ body {
 .btn-lg { padding: 1rem 2.25rem; font-size: 1.05rem }
 
 /* ══════════════════════════════
+   VIDEO PRESENTACIÓN
+══════════════════════════════ */
+.video-section {
+  padding: clamp(3rem, 6vw, 4.5rem) clamp(1.25rem, 5vw, 2rem);
+  background: var(--bg);
+}
+.video-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -.01em;
+  color: var(--text);
+  margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
+  text-align: center;
+}
+.video-wrap {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  background: #000;
+  display: block;
+  text-decoration: none;
+  transition: box-shadow .3s ease;
+}
+.video-wrap:hover {
+  box-shadow: 0 8px 32px rgba(107, 45, 94, 0.25);
+}
+.video-preview-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .3s ease;
+}
+.video-wrap:hover .video-preview-img {
+  transform: scale(1.02);
+}
+.video-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  pointer-events: none;
+  transition: transform .3s ease;
+}
+.video-wrap:hover .video-play-btn {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+.video-wrap:active .video-play-btn {
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+/* ══════════════════════════════
    PROPUESTA DE VALOR
 ══════════════════════════════ */
 .section {
@@ -1113,6 +1173,26 @@ select.form-input { cursor: pointer }
       </div>
     </section>
 
+    <!-- Video presentación -->
+    <section class="video-section">
+      <div class="container container--narrow">
+        <p class="section-label fi" data-es="Conocé más" data-en="Learn more" data-pt="Saiba mais">Conocé más</p>
+        <h2 class="video-title fi fi-d1" data-es="Ecotransfer — Movilidad sustentable" data-en="Ecotransfer — Sustainable mobility" data-pt="Ecotransfer — Mobilidade sustentável">Ecotransfer — Movilidad sustentable</h2>
+        <a href="https://www.youtube.com/watch?v=EInAhapbLfw" target="_blank" rel="noopener" class="video-wrap fi fi-d2">
+          <img
+            src="https://img.youtube.com/vi/EInAhapbLfw/maxresdefault.jpg"
+            alt="Preview del video de recibimiento en aeropuerto"
+            class="video-preview-img">
+          <div class="video-play-btn" aria-label="Reproducir video">
+            <svg width="68" height="68" viewBox="0 0 68 68" fill="none">
+              <circle cx="34" cy="34" r="34" fill="rgba(107, 45, 94, 0.9)"/>
+              <path d="M26 20L48 34L26 48V20Z" fill="white"/>
+            </svg>
+          </div>
+        </a>
+      </div>
+    </section>
+
     <!-- Propuesta de valor -->
     <section class="section">
       <div class="container">
@@ -1267,24 +1347,11 @@ select.form-input { cursor: pointer }
           </div>
         </li>
 
-        <li class="exp-card">
-          <!-- REEMPLAZAR: foto real de alojamiento -->
-          <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80" alt="Casa de alojamiento con jardín — Mendoza" loading="lazy">
-          <div class="exp-card-overlay"></div>
-          <div class="exp-card-content">
-            <span class="exp-card-title-sideways" data-es="Alojamiento" data-en="Accommodation" data-pt="Hospedagem">Alojamiento</span>
-            <span class="exp-card-icon">🏡</span>
-            <h2 class="exp-card-title" data-es="Alojamiento" data-en="Accommodation" data-pt="Hospedagem">Alojamiento</h2>
-            <p class="exp-card-desc" data-es="Casas y deptos en Ciudad, Tupungato, Chacras de Coria y Luján. En Airbnb como "Vuela Alto Mendoza"." data-en="Houses and apartments in the city, Tupungato, Chacras de Coria and Luján. On Airbnb as "Vuela Alto Mendoza"." data-pt='Casas e aptos em Cidade, Tupungato, Chacras de Coria e Luján. No Airbnb como "Vuela Alto Mendoza".'>Casas y deptos en Ciudad, Tupungato, Chacras de Coria y Luján. En Airbnb como "Vuela Alto Mendoza".</p>
-          </div>
-        </li>
-
       </ul>
     </div>
 
     <div class="servicios-cta fi">
       <a href="#contacto" class="btn-primary btn-lg" data-page="contacto" data-es="Solicitar cotización" data-en="Request a quote" data-pt="Solicitar orçamento">Solicitar cotización</a>
-      <a href="#" class="btn-ghost btn-lg" id="btnAirbnb" target="_blank" rel="noopener" data-es="Ver alojamientos" data-en="See accommodations" data-pt="Ver hospedagens">Ver alojamientos</a>
     </div>
 
     <!-- Aviso legal -->
@@ -1449,7 +1516,6 @@ select.form-input { cursor: pointer }
               <label class="check-item"><input type="checkbox" name="servicios" value="Potrerillos"> <span data-es="Potrerillos" data-en="Potrerillos" data-pt="Potrerillos">Potrerillos</span></label>
               <label class="check-item"><input type="checkbox" name="servicios" value="Villavicencio"> <span data-es="Villavicencio" data-en="Villavicencio" data-pt="Villavicencio">Villavicencio</span></label>
               <label class="check-item"><input type="checkbox" name="servicios" value="Ciudad de Mendoza"> <span data-es="Ciudad de Mendoza" data-en="Mendoza City" data-pt="Cidade de Mendoza">Ciudad de Mendoza</span></label>
-              <label class="check-item"><input type="checkbox" name="servicios" value="Alojamiento"> <span data-es="Alojamiento" data-en="Accommodation" data-pt="Hospedagem">Alojamiento</span></label>
               <label class="check-item"><input type="checkbox" name="servicios" value="Otro destino"> <span data-es="Otro destino" data-en="Other destination" data-pt="Outro destino">Otro destino</span></label>
             </div>
           </div>
